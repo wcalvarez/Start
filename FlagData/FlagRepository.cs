@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
+using System.Collections.ObjectModel;
 
 namespace FlagData
 {
@@ -65,7 +66,7 @@ namespace FlagData
                        Description = f.Value.Trim()
                    });
 
-            Flags = new List<Flag>(flags.OrderBy(f => f.Country));
+            Flags = new ObservableCollection<Flag>(flags.OrderBy(f => f.Country));
 
             // Read the countries in.
             Countries = new List<string>();
